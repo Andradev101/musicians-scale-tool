@@ -16,3 +16,4 @@
 //         noteValue.style.opacity = "1";    
 //     }
 // });//chord notes highlight functions
+resetNoteStyle()

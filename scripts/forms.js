@@ -17,7 +17,6 @@ rootNoteValue.insertAdjacentHTML("afterbegin", `
     <option value="${repeatedNotes[11]}"></option>
 `)//adding note names dynamically through the array
 let rootNoteValueChilds = rootNoteValue.children;
-console.log(rootNoteValueChilds);
 //getting all form children elements
 
 for (let counter = 0; counter < rootNoteValue.length; counter++) {
@@ -26,7 +25,7 @@ for (let counter = 0; counter < rootNoteValue.length; counter++) {
     element.id = counter;
 } //naming them out
 
-rootNoteValue.addEventListener('mousedown', wipeOut)
+//rootNoteValue.addEventListener('mousedown', wipeOut)
 
 function wipeOut(){    
     noteDiv.forEach(element => {
@@ -36,6 +35,7 @@ function wipeOut(){
 }
 
 function getUserOption(selected){
+    wipeOut()
     var res = selected.options[selected.selectedIndex].value
     console.log(res);
     
