@@ -56,18 +56,4 @@ frets.forEach(fretNumber => {
 
 const noteValue = document.querySelectorAll(".note p")
 const noteDiv = document.querySelectorAll(".note")
-
-// noteDiv.forEach(noteValue => {
-//     noteValue.id = noteValue.innerText;
-//     if (noteValue.innerText == "E") {
-//         noteValue.style.backgroundColor = "red";   
-//     }else if(noteValue.id == "G"){
-//         noteValue.style.backgroundColor = "green";
-//     }
-// });
-
-
-
-
-
-
+//note divs for styling

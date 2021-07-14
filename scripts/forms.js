@@ -1,3 +1,7 @@
+let rootNoteValue = document.getElementById("rootNote");
+let sumbitBtn = document.querySelector("#submitBtn")
+//let selected = document.getElementById('rootNote');
+
 rootNoteValue.insertAdjacentHTML("afterbegin", `
     <option value="${repeatedNotes[0]}"></option>
     <option value="${repeatedNotes[1]}"></option>
@@ -13,66 +17,53 @@ rootNoteValue.insertAdjacentHTML("afterbegin", `
     <option value="${repeatedNotes[11]}"></option>
 `)//adding note names dynamically through the array
 let rootNoteValueChilds = rootNoteValue.children;
+console.log(rootNoteValueChilds);
 //getting all form children elements
 
 for (let counter = 0; counter < rootNoteValue.length; counter++) {
     let element = rootNoteValueChilds[counter];
     element.innerText = notes[counter];
-    element.id = [counter];
+    element.id = counter;
 } //naming them out
 
-// noteDiv.forEach(noteValue => {
-//     noteValue.id = noteValue.innerText;
-//     if (noteValue.innerText == majorChord[0]) {
-//         noteValue.style.backgroundColor = "red";   
-//         noteValue.style.opacity = "1"; 
-//     }else if (noteValue.innerText == majorChord[1]) {
-//         noteValue.style.backgroundColor = "rgb(204 0 85)"; 
-//         noteValue.style.opacity = "1";   
-//     }else if (noteValue.innerText == majorChord[2]) {
-//         noteValue.style.backgroundColor = "rgb(228 16 192)";
-//         noteValue.style.opacity = "1";    
-//     }
-// });//chord notes highlight functions
-const sumbiBtn = document.querySelector("#submitBtn");
+rootNoteValue.addEventListener('mousedown', wipeOut)
 
-sumbiBtn.addEventListener('mousedown', wipeOut);
-sumbiBtn.addEventListener('mouseup', highlightNotes);
-
-function wipeOut(){
-    noteDiv.forEach(noteValue => {
-        noteValue.id = noteValue.innerText;
-        if (noteValue.innerText == majorChord[0]) {
-            noteValue.style.backgroundColor = "rgb(110, 110, 110)";   
-            noteValue.style.opacity = "1"; 
-        }else if (noteValue.innerText == majorChord[1]) {
-            noteValue.style.backgroundColor = "rgb(110, 110, 110)"; 
-            noteValue.style.opacity = "1";   
-        }else if (noteValue.innerText == majorChord[2]) {
-            noteValue.style.backgroundColor = "rgb(110, 110, 110)";
-            noteValue.style.opacity = "1";    
-        }
-    });//chord notes highlight functions
-
-    stringContainer.forEach(element => {
-        element.childNodes[0].style.backgroundColor = "green"      
-        element.childNodes[0].style.opacity = "0.3"      
-        element.childNodes[12].style.backgroundColor = "green"      
-    });
+function wipeOut(){    
+    noteDiv.forEach(element => {
+    element.style.backgroundColor = '#6e6e6e' 
+    resetNoteStyle()
+    })    
 }
 
-function highlightNotes(){
-    noteDiv.forEach(noteValue => {
-        noteValue.id = noteValue.innerText;
-        if (noteValue.innerText == majorChord[0]) {
-            noteValue.style.backgroundColor = "red";   
-            noteValue.style.opacity = "1"; 
-        }else if (noteValue.innerText == majorChord[1]) {
-            noteValue.style.backgroundColor = "rgb(204 0 85)"; 
-            noteValue.style.opacity = "1";   
-        }else if (noteValue.innerText == majorChord[2]) {
-            noteValue.style.backgroundColor = "rgb(228 16 192)";
-            noteValue.style.opacity = "1";    
+function getUserOption(selected){
+    var res = selected.options[selected.selectedIndex].value
+    console.log(res);
+    
+    var majorNotesId = 
+    [   
+        parseInt(selected.options[selected.selectedIndex].id),
+        parseInt(selected.options[selected.selectedIndex].id)+4,
+        parseInt(selected.options[selected.selectedIndex].id)+7,
+    ]//get the root note id and other steps
+    
+    var majorNotesNames =[ 
+        repeatedNotes[majorNotesId[0]],
+        repeatedNotes[majorNotesId[1]],
+        repeatedNotes[majorNotesId[2]],
+    ]//to get the names of the notes
+
+    console.log(majorNotesNames);
+
+    noteDiv.forEach(element => {
+        if (element.innerText == majorNotesNames[0]) {
+            element.style.backgroundColor = 'red'
+            element.style.opacity = 1
+        }else if (element.innerText == majorNotesNames[1]) {
+            element.style.backgroundColor = '#f90'
+            element.style.opacity = 1
+        }else if (element.innerText == majorNotesNames[2]) {
+            element.style.backgroundColor = '#f50'
+            element.style.opacity = 1
         }
-    });
+    }); //compares the names and if its true, highlight em   
 }
