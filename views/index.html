@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/user.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="fret-counting"></div>
+    </div>
+    <div class="user-side">
+        <form action="javascript:getRootNote();" method="POST">
+            <select name="rootNote" id="rootNote">
+            </select>
+            <input type="submit" value="Submit" id="submitBtn">
+        </form>
+    </div>
+    <script src="/scripts/index.js"></script>
+    <script src="/scripts/octave.js"></script>
+    <script src="/scripts/chord-finder.js"></script>
+    <script src="/scripts/getNotes.js"></script>
+    <script src="/scripts/forms.js"></script>
+</body>
+</html>
