@@ -3,12 +3,14 @@ let highlightMethodValue = document.getElementById("highlightMethod");
 let sumbitBtn = document.querySelector("#submitBtn")
 
 var majorNotesNames = [];
-//let selected = document.getElementById('rootNote');
+
 highlightMethodValue.insertAdjacentHTML("afterbegin",`
     <option value="${highlightMethod[0]}"></option>  
     <option value="${highlightMethod[1]}"></option>  
     <option value="${highlightMethod[2]}"></option>  
-`)
+    <option value="${highlightMethod[3]}"></option>  
+`)//getting all form children elements
+
 rootNoteValue.insertAdjacentHTML("afterbegin", `
     <option value="${repeatedNotes[0]}"></option>
     <option value="${repeatedNotes[1]}"></option>
@@ -30,42 +32,42 @@ for (let counter = 0; counter < rootNoteValue.length; counter++) {
     let element = rootNoteValueChilds[counter];
     element.innerText = notes[counter];
     element.id = counter;
-} //naming them out
+} //naming them out from notes[] index.js
 
 for (let counter = 0; counter < highlightMethodValue.length; counter++) {
     let element = highlightMethodValue[counter];
     element.innerText = highlightMethod[counter];
-}
+} //naming them out from highlightMethod[] in index.js
 
-function wipeOut(){    
+function wipeOut(){
     noteDiv.forEach(element => {
-    element.style.backgroundColor = '#6e6e6e' 
+    element.style.backgroundColor = '#6e6e6e'
     resetNoteStyle()
-    })    
+    })  
 }
 
 function getUserOption(selected){
-    wipeOut()
+    //wipeOut()
     var res = selected.options[selected.selectedIndex].value
     console.log(res);
     
-    notesId = 
+    notesId =
     [   
-        parseInt(selected.options[selected.selectedIndex].id),
-        parseInt(selected.options[selected.selectedIndex].id)+1,
-        parseInt(selected.options[selected.selectedIndex].id)+2,
-        parseInt(selected.options[selected.selectedIndex].id)+3,
-        parseInt(selected.options[selected.selectedIndex].id)+4,
-        parseInt(selected.options[selected.selectedIndex].id)+5,
-        parseInt(selected.options[selected.selectedIndex].id)+6,
-        parseInt(selected.options[selected.selectedIndex].id)+7,
-        parseInt(selected.options[selected.selectedIndex].id)+8,
-        parseInt(selected.options[selected.selectedIndex].id)+9,
-        parseInt(selected.options[selected.selectedIndex].id)+10,
-        parseInt(selected.options[selected.selectedIndex].id)+11,
-    ]//get the root note id and other steps
+        parseInt(selected.options[selected.selectedIndex].id),  //root
+        parseInt(selected.options[selected.selectedIndex].id)+1,//2nd minor
+        parseInt(selected.options[selected.selectedIndex].id)+2,//2nd major
+        parseInt(selected.options[selected.selectedIndex].id)+3,//3rd minor
+        parseInt(selected.options[selected.selectedIndex].id)+4,//3rd major
+        parseInt(selected.options[selected.selectedIndex].id)+5,//perfect 4th
+        parseInt(selected.options[selected.selectedIndex].id)+6,//augmented 4th/diminished 5th
+        parseInt(selected.options[selected.selectedIndex].id)+7,//perfect 5th
+        parseInt(selected.options[selected.selectedIndex].id)+8,//6th minor
+        parseInt(selected.options[selected.selectedIndex].id)+9,//6th major
+        parseInt(selected.options[selected.selectedIndex].id)+10,//7th minor
+        parseInt(selected.options[selected.selectedIndex].id)+11,//7th major
+    ]//get the root note id and the following steps
     
-    majorNotesNames =[ 
+    notesNames =[ 
         repeatedNotes[notesId[0]],
         repeatedNotes[notesId[1]],
         repeatedNotes[notesId[2]],
@@ -80,22 +82,13 @@ function getUserOption(selected){
         repeatedNotes[notesId[11]]
     ]//to get the names of the notes
     
-    // console.log(majorNotesNames);
-    
-    // noteDiv.forEach(element => {
-    //     if (element.innerText == majorNotesNames[0]) {
-    //         element.style.backgroundColor = 'red'
-    //         element.style.opacity = 1
-    //     }
-    // }); //compares the names and if its true, highlight em  
+    singleNoteMethod()
 }
 
 function getUserhighlightMethod(selected){
-    
-    singleNoteValue = 
-    [   
-        selected.options[selected.selectedIndex].value
-    ]//get the highlight method single note
+    wipeOut()
+    highlightMethod = selected.options[selected.selectedIndex].value
+    //get the highlight method single note
 
     notesNames =[ 
         repeatedNotes[notesId[0]],
@@ -110,55 +103,15 @@ function getUserhighlightMethod(selected){
         repeatedNotes[notesId[9]],
         repeatedNotes[notesId[10]],
         repeatedNotes[notesId[11]]
-    ]//these two arrays needs to be global to access the root note, and their following steps
+    ]//these two arrays needs to be global to access the root note, and their following steps   
 
-    if (singleNoteValue[0] == "Single note"){
+    if (highlightMethod == "Single note"){
         singleNoteMethod()    
-    }else if(singleNoteValue[0] == "Major chord"){
+    }else if(highlightMethod == "Major chord"){
         majorChordMethod()    
-    }else if(singleNoteValue[0] == "Minor chord"){
-        minorChordMethod()    
+    }else if(highlightMethod == "Minor chord"){
+        minorChordMethod()
+    }else if(highlightMethod == "Power chord"){
+        powerChordMethod()    
     }
-}
-function singleNoteMethod(){
-    wipeOut()
-    resetNoteStyle()
-    noteDiv.forEach(element => {
-        if (element.innerText == notesNames[0]) {
-            element.style.backgroundColor = 'red'
-            element.style.opacity = 1
-        }
-    });
-}
-function majorChordMethod(){
-    wipeOut()
-    resetNoteStyle()
-    noteDiv.forEach(element => {
-        if (element.innerText == notesNames[0]) {
-            element.style.backgroundColor = 'red'
-            element.style.opacity = 1
-        }else if(element.innerText == notesNames[4]){
-            element.style.backgroundColor = '#ca1341'
-            element.style.opacity = 1    
-        }else if(element.innerText == notesNames[7]){
-            element.style.backgroundColor = '#e62c86'
-            element.style.opacity = 1    
-        }
-    });   
-}
-function minorChordMethod(){
-    wipeOut()
-    resetNoteStyle()
-    noteDiv.forEach(element => {
-        if (element.innerText == notesNames[0]) {
-            element.style.backgroundColor = 'red'
-            element.style.opacity = 1
-        }else if(element.innerText == notesNames[3]){
-            element.style.backgroundColor = '#ca1341'
-            element.style.opacity = 1    
-        }else if(element.innerText == notesNames[7]){
-            element.style.backgroundColor = '#e62c86'
-            element.style.opacity = 1    
-        }
-    });   
 }

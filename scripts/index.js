@@ -1,19 +1,20 @@
 const container = document.querySelector(".container");
 const notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-const frets = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+const frets = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 const fretCounting = document.querySelector(".fret-counting")
 //all 12 possible notes
 const strings = ["1st","2nd","3rd","4th","5th","6th"];
 var repeatedNotes = new Array(3).fill(["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]).flat();
-var highlightMethod = ["Single note", "Major chord", "Minor chord"]
 //repeat notes[] 3 times and flat it to only one array, called reapeatedNotes[]
+var highlightMethod = ["Single note", "Major chord", "Minor chord", "Power chord"]
+//every hilight option on the user side
+
 let k = 0;
 for (let i = 0; i < strings.length ; i++) {
     const stringContainer = document.createElement("div");
     container.append(stringContainer);
     stringContainer.classList.add("string");
-    //stringContainer.classList.add(strings[i]);
-    //string iteration
+    
     let jValue = k
     switch (jValue) {
         case 5:
@@ -34,8 +35,8 @@ for (let i = 0; i < strings.length ; i++) {
         case 0:
             jValue = 4;   
             break;
-    }
-    k++;   //starting note
+    } //starting note
+    k++;  
 
     for (let j = jValue; j <= jValue+22; j++) {
         const noteBox = document.createElement("div");

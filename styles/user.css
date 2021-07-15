@@ -3,3 +3,9 @@
     justify-content: center;
     align-items: center;
 }
+.fret-counting p{
+    font-size: 12px;
+    text-align: center;
+    width: 40px;
+    margin: 2px;
+}

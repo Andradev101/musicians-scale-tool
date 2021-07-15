@@ -9,21 +9,24 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="container">
         <div class="fret-counting"></div>
     </div>
+
     <div class="user-side">        
         <form action="javascript:UserSubmit(this);" method="POST">
-            <select name="rootNote" id="rootNote" onchange="getUserOption(this)">
-            </select>
-            <select name="highlightMethod" id="highlightMethod" onchange="getUserhighlightMethod(this)">
-            </select>
+            <select name="rootNote" id="rootNote" onchange="getUserOption(this)"></select>
+            <select name="highlightMethod" id="highlightMethod" onchange="getUserhighlightMethod(this)"></select>
         </form>
     </div>
+
     <script src="/scripts/index.js"></script>
     <script src="/scripts/gtrStrings.js"></script>
     <script src="/scripts/chord-finder.js"></script>
     <script src="/scripts/forms.js"></script>
     <script src="/scripts/highlightNotes.js"></script>
+    <script src="/scripts/highlightMethod.js"></script>
+    
 </body>
 </html>
