@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/index.css">
     <link rel="stylesheet" href="/styles/user.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -16,8 +19,10 @@
 
     <div class="user-side">        
         <form action="javascript:UserSubmit(this);" method="POST">
-            <select name="rootNote" id="rootNote" onchange="getUserOption(this)"></select>
-            <select name="highlightMethod" id="highlightMethod" onchange="getUserhighlightMethod(this)"></select>
+            <select name="rootNote" id="rootNote" onchange="getUserOption(this)">
+                <option id="toBeRemoved" value=""></option>
+            </select>
+            <select disabled name="highlightMethod" id="highlightMethod" onchange="getUserhighlightMethod(this)"></select>
         </form>
     </div>
 

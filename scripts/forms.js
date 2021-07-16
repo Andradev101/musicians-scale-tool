@@ -1,14 +1,16 @@
 let rootNoteValue = document.getElementById("rootNote");
 let highlightMethodValue = document.getElementById("highlightMethod");
-let sumbitBtn = document.querySelector("#submitBtn")
-
-var majorNotesNames = [];
+let sumbitBtn = document.querySelector("#submitBtn");
+let toBeRemoved = document.getElementById("toBeRemoved")
 
 highlightMethodValue.insertAdjacentHTML("afterbegin",`
+    
     <option value="${highlightMethod[0]}"></option>  
     <option value="${highlightMethod[1]}"></option>  
     <option value="${highlightMethod[2]}"></option>  
-    <option value="${highlightMethod[3]}"></option>  
+    <option value="${highlightMethod[3]}"></option> 
+    <option value="${highlightMethod[4]}"></option> 
+    <option value="${highlightMethod[5]}"></option> 
 `)//getting all form children elements
 
 rootNoteValue.insertAdjacentHTML("afterbegin", `
@@ -26,7 +28,7 @@ rootNoteValue.insertAdjacentHTML("afterbegin", `
     <option value="${repeatedNotes[11]}"></option>
 `)//adding note names dynamically through the array
 let rootNoteValueChilds = rootNoteValue.children;
-//getting all form children elements
+//getting all form childs elements
 
 for (let counter = 0; counter < rootNoteValue.length; counter++) {
     let element = rootNoteValueChilds[counter];
@@ -41,7 +43,8 @@ for (let counter = 0; counter < highlightMethodValue.length; counter++) {
 
 function wipeOut(){
     noteDiv.forEach(element => {
-    element.style.backgroundColor = '#6e6e6e'
+    element.style.backgroundColor = '#334D5B'
+    element.classList.remove("rootNoteAnimation")
     resetNoteStyle()
     })  
 }
@@ -50,6 +53,9 @@ function getUserOption(selected){
     //wipeOut()
     var res = selected.options[selected.selectedIndex].value
     console.log(res);
+
+    toBeRemoved.remove()
+    highlightMethodValue.removeAttribute("disabled")
     
     notesId =
     [   
@@ -59,7 +65,7 @@ function getUserOption(selected){
         parseInt(selected.options[selected.selectedIndex].id)+3,//3rd minor
         parseInt(selected.options[selected.selectedIndex].id)+4,//3rd major
         parseInt(selected.options[selected.selectedIndex].id)+5,//perfect 4th
-        parseInt(selected.options[selected.selectedIndex].id)+6,//augmented 4th/diminished 5th
+        parseInt(selected.options[selected.selectedIndex].id)+6,//augmented 4th/diminished 5th (tritone) << ty bern|doobielespaul
         parseInt(selected.options[selected.selectedIndex].id)+7,//perfect 5th
         parseInt(selected.options[selected.selectedIndex].id)+8,//6th minor
         parseInt(selected.options[selected.selectedIndex].id)+9,//6th major
@@ -80,9 +86,8 @@ function getUserOption(selected){
         repeatedNotes[notesId[9]],
         repeatedNotes[notesId[10]],
         repeatedNotes[notesId[11]]
-    ]//to get the names of the notes
-    
-    singleNoteMethod()
+    ]//to get the names of the notes 
+    selectHilightMode()
 }
 
 function getUserhighlightMethod(selected){
@@ -104,7 +109,10 @@ function getUserhighlightMethod(selected){
         repeatedNotes[notesId[10]],
         repeatedNotes[notesId[11]]
     ]//these two arrays needs to be global to access the root note, and their following steps   
+    selectHilightMode()
+}
 
+function selectHilightMode(){
     if (highlightMethod == "Single note"){
         singleNoteMethod()    
     }else if(highlightMethod == "Major chord"){
@@ -113,5 +121,9 @@ function getUserhighlightMethod(selected){
         minorChordMethod()
     }else if(highlightMethod == "Power chord"){
         powerChordMethod()    
+    }else if(highlightMethod == "Minor Pentatonic"){
+        pentatonicMethod()   
+    }else if(highlightMethod == "Minor Pentatonic blues"){
+        pentatonicBluesMethod()   
     }
 }
