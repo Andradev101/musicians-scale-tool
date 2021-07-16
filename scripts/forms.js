@@ -94,21 +94,7 @@ function getUserhighlightMethod(selected){
     wipeOut()
     highlightMethod = selected.options[selected.selectedIndex].value
     //get the highlight method single note
-
-    notesNames =[ 
-        repeatedNotes[notesId[0]],
-        repeatedNotes[notesId[1]],
-        repeatedNotes[notesId[2]],
-        repeatedNotes[notesId[3]],
-        repeatedNotes[notesId[4]],
-        repeatedNotes[notesId[5]],
-        repeatedNotes[notesId[6]],
-        repeatedNotes[notesId[7]],
-        repeatedNotes[notesId[8]],
-        repeatedNotes[notesId[9]],
-        repeatedNotes[notesId[10]],
-        repeatedNotes[notesId[11]]
-    ]//these two arrays needs to be global to access the root note, and their following steps   
+    
     selectHilightMode()
 }
 
