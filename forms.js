@@ -54,7 +54,6 @@ function wipeOut(){
 function getUserOption(selected){
     //wipeOut()
     var res = selected.options[selected.selectedIndex].value
-    console.log(res);
 
     noteToBeRemoved.remove()
     highlightMethodValue.removeAttribute("disabled")
