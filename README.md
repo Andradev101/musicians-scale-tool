@@ -1,5 +1,5 @@
 # musicians-scale-tool
-Little JavaScript project based on musical theory notes/scales.
+Little JavaScript project based on musical theory intervals.
 
 The algorithm gets your root note and highlight the possible ways to make it sound the way you like, now it has:
 -Single note;
