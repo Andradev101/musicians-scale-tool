@@ -1,7 +1,8 @@
 let rootNoteValue = document.getElementById("rootNote");
 let highlightMethodValue = document.getElementById("highlightMethod");
 let sumbitBtn = document.querySelector("#submitBtn");
-let toBeRemoved = document.getElementById("toBeRemoved")
+let noteToBeRemoved = document.getElementById("noteToBeRemoved")
+let highlightToBeRemoved = document.getElementById("highlightToBeRemoved")
 
 highlightMethodValue.insertAdjacentHTML("afterbegin",`
     
@@ -11,6 +12,7 @@ highlightMethodValue.insertAdjacentHTML("afterbegin",`
     <option value="${highlightMethod[3]}"></option> 
     <option value="${highlightMethod[4]}"></option> 
     <option value="${highlightMethod[5]}"></option> 
+    <option value="${highlightMethod[6]}"></option> 
 `)//getting all form children elements
 
 rootNoteValue.insertAdjacentHTML("afterbegin", `
@@ -27,9 +29,9 @@ rootNoteValue.insertAdjacentHTML("afterbegin", `
     <option value="${repeatedNotes[10]}"></option>
     <option value="${repeatedNotes[11]}"></option>
 `)//adding note names dynamically through the array
+
 let rootNoteValueChilds = rootNoteValue.children;
 //getting all form childs elements
-
 for (let counter = 0; counter < rootNoteValue.length; counter++) {
     let element = rootNoteValueChilds[counter];
     element.innerText = notes[counter];
@@ -47,14 +49,14 @@ function wipeOut(){
     element.classList.remove("rootNoteAnimation")
     resetNoteStyle()
     })  
-}
+} //reset noteDiv color and animation properties
 
 function getUserOption(selected){
     //wipeOut()
     var res = selected.options[selected.selectedIndex].value
     console.log(res);
 
-    toBeRemoved.remove()
+    noteToBeRemoved.remove()
     highlightMethodValue.removeAttribute("disabled")
     
     notesId =
@@ -93,9 +95,13 @@ function getUserOption(selected){
 function getUserhighlightMethod(selected){
     wipeOut()
     highlightMethod = selected.options[selected.selectedIndex].value
+    highlightToBeRemoved.remove()
     //get the highlight method single note
-    
     selectHilightMode()
+    if (highlightMethod != "Circle of 5THs") {
+        clearInterval(fifthsCycle); //cancels interval in highlightsMethod.js:191
+    }
+    
 }
 
 function selectHilightMode(){
@@ -106,10 +112,12 @@ function selectHilightMode(){
     }else if(highlightMethod == "Minor chord"){
         minorChordMethod()
     }else if(highlightMethod == "Power chord"){
-        powerChordMethod()    
+        powerChordMethod()
     }else if(highlightMethod == "Minor Pentatonic"){
-        pentatonicMethod()   
+        pentatonicMethod()
     }else if(highlightMethod == "Minor Pentatonic blues"){
-        pentatonicBluesMethod()   
+        pentatonicBluesMethod()
+    }else if(highlightMethod == "Circle of 5THs"){
+        circleOf5thsMethod()
     }
-}
+}//this function is called whenever any of the two buttons change it values and update the highlight method

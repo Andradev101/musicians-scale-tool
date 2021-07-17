@@ -5,16 +5,20 @@
     font-family: 'Saira Condensed', sans-serif;
 }
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     background-color: #292f36;
     color: white;
-    height: 50vh;
+    height: 100vh;
 }
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
 }
 .string{
     width: 100%;
@@ -42,4 +46,4 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}   

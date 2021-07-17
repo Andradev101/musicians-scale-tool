@@ -20,9 +20,11 @@
     <div class="user-side">        
         <form action="javascript:UserSubmit(this);" method="POST">
             <select name="rootNote" id="rootNote" onchange="getUserOption(this)">
-                <option id="toBeRemoved" value=""></option>
+                <option id="noteToBeRemoved" value=""></option>
             </select>
-            <select disabled name="highlightMethod" id="highlightMethod" onchange="getUserhighlightMethod(this)"></select>
+            <select disabled name="highlightMethod" id="highlightMethod" onchange="getUserhighlightMethod(this)">
+                <option id="highlightToBeRemoved" value=""></option>
+            </select>
         </form>
     </div>
 
