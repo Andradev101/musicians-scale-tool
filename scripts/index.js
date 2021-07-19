@@ -45,7 +45,7 @@ for (let i = 0; i < strings.length ; i++) {
         case 0:
             jValue = 4;   
             break;
-    } //starting note (fret number 0) in the user fretboard
+    }//starting note (fret number 0) in the user fretboard
     k++;  
 
     for (let j = jValue; j <= jValue+22; j++) {//e.g starts from 4 and it goes until (4+22) 26
