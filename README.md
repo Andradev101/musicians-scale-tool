@@ -15,6 +15,6 @@ https://andradev101.github.io/musicians-scale-tool/
 https://andradev101.github.io/musicians-scale-tool/  
 https://andradev101.github.io/musicians-scale-tool/  
 
-![alt text](https://i.imgur.com/YTY7wBe.png)
-![alt text](https://i.imgur.com/yUov70j.png)
+![alt text](https://i.imgur.com/jYvbKRo.png)
 ![alt text](https://i.imgur.com/81FppNS.png)
+![alt text](https://i.imgur.com/bkFKN2q.png)
