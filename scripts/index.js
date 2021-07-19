@@ -6,6 +6,8 @@ const strings = ["1st","2nd","3rd","4th","5th","6th"];
 var repeatedNotes = new Array(3).fill(["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]).flat();
 //repeat the array 3 times and flat it to only one array, called reapeatedNotes[]
 
+document.body.classList.add("backgroundAnimation")
+
 var highlightMethod = [
     "Single note",
     "Major chord",
