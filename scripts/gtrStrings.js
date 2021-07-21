@@ -1,4 +1,5 @@
 const stringContainer = document.querySelectorAll(".string")
+
 function resetNoteStyle(){
     stringContainer.forEach(element => {
         element.classList.remove("rootNoteAnimation")
