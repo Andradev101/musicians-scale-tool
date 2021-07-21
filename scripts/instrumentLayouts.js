@@ -52,7 +52,9 @@ function gtrLayout() {
         fretNumber = document.createElement("p");
         fretNumber.innerText = counter;
         fretCounting.append(fretNumber) 
-    }//assing counter value to fretcount p tags   
+    }//assing counter value to fretcount p tags 
+    assignNotes()
+    selectHilightMode() //select highlight method from the form
 }
 
 function pianoLayout(){
@@ -81,9 +83,11 @@ function pianoLayout(){
         fretNumber.innerText = counter;
         fretCounting.append(fretNumber) 
     }//assign counter value to fretcount p tags
+    assignNotes()
+    selectHilightMode()
 }
 
-const noteValue = document.querySelectorAll(".note p")
-const noteDiv = document.querySelectorAll(".note")
-
-//TODO
+function assignNotes(){
+    noteValue = document.querySelectorAll(".note p")
+    noteDiv = document.querySelectorAll(".note")
+}
