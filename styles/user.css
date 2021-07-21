@@ -1,7 +1,7 @@
 .user-side{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 .rootNoteAnimation{
     animation: rootNote 1s linear infinite;
