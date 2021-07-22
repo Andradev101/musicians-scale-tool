@@ -3,7 +3,6 @@ var noteDegreesColor = ["#f26419","#00b4d8","#BF1363", "#F9A00C"]
 
 function singleNoteMethod(){
     wipeOut()
-    resetNoteStyle()
 
     filteredNotes = [ 
         notesNames[0]

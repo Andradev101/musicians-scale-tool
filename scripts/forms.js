@@ -4,59 +4,30 @@ let sumbitBtn = document.querySelector("#submitBtn");
 let noteToBeRemoved = document.getElementById("noteToBeRemoved")
 let highlightToBeRemoved = document.getElementById("highlightToBeRemoved")
 
-highlightMethodValue.insertAdjacentHTML("afterbegin",`
-    
-    <option value="${highlightMethod[0]}"></option>  
-    <option value="${highlightMethod[1]}"></option>  
-    <option value="${highlightMethod[2]}"></option>  
-    <option value="${highlightMethod[3]}"></option> 
-    <option value="${highlightMethod[4]}"></option> 
-    <option value="${highlightMethod[5]}"></option> 
-    <option value="${highlightMethod[6]}"></option> 
-`)//getting all form children elements
+for (let counter = notes.length-1; counter >= 0; counter--) {
+    rootNoteValue.insertAdjacentHTML("afterbegin",
+    `<option value="${highlightMethod[counter]}"></option> `);  
+}
 
-rootNoteValue.insertAdjacentHTML("afterbegin", `
-    <option value="${repeatedNotes[0]}"></option>
-    <option value="${repeatedNotes[1]}"></option>
-    <option value="${repeatedNotes[2]}"></option>
-    <option value="${repeatedNotes[3]}"></option>
-    <option value="${repeatedNotes[4]}"></option>
-    <option value="${repeatedNotes[5]}"></option>
-    <option value="${repeatedNotes[6]}"></option>
-    <option value="${repeatedNotes[7]}"></option>
-    <option value="${repeatedNotes[8]}"></option>
-    <option value="${repeatedNotes[9]}"></option>
-    <option value="${repeatedNotes[10]}"></option>
-    <option value="${repeatedNotes[11]}"></option>
-`)//adding note names dynamically through the array
+let rootNoteValueChilds = rootNoteValue.children; //getting all form childs elements
 
-let rootNoteValueChilds = rootNoteValue.children;
-//getting all form childs elements
 for (let counter = 0; counter < rootNoteValue.length; counter++) {
     let element = rootNoteValueChilds[counter];
     element.innerText = notes[counter];
     element.id = counter;
 } //naming them out from notes[] index.js
 
+for (let counter = highlightMethod.length-1; counter >= 0; counter--) {
+    highlightMethodValue.insertAdjacentHTML("afterbegin",
+    `<option value="${highlightMethod[counter]}"></option> `);  
+}
+
 for (let counter = 0; counter < highlightMethodValue.length; counter++) {
     let element = highlightMethodValue[counter];
     element.innerText = highlightMethod[counter];
 } //naming them out from highlightMethod[] in index.js
 
-function wipeOut(){
-    noteDiv.forEach(element => {
-    element.style.backgroundColor = '#334D5B'
-    element.classList.remove("rootNoteAnimation")
-    resetNoteStyle()
-    })  
-} //reset noteDiv color and animation properties
-
 function getUserOption(selected){
-    //wipeOut()
-    var res = selected.options[selected.selectedIndex].value
-    console.log(res);
-
-    noteToBeRemoved.remove()
     highlightMethodValue.removeAttribute("disabled")
     
     notesId =
@@ -95,8 +66,6 @@ function getUserOption(selected){
 function getUserhighlightMethod(selected){
     wipeOut()
     highlightMethod = selected.options[selected.selectedIndex].value
-    highlightToBeRemoved.remove()
-    //get the highlight method single note
     selectHilightMode()
     if (highlightMethod != "Circle of 5THs") {
         clearInterval(fifthsCycle); //cancels interval in highlightsMethod.js:191
@@ -119,5 +88,7 @@ function selectHilightMode(){
         pentatonicBluesMethod()
     }else if(highlightMethod == "Circle of 5THs"){
         circleOf5thsMethod()
+    }else if(highlightMethod == "Major Scale"){
+        majorScaleMethod()
     }
 }//this function is called whenever any of the two buttons change it values and update the highlight method
