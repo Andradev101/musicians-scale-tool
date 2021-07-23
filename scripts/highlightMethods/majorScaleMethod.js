@@ -17,7 +17,7 @@ function majorScaleMethod(){
             element.style.opacity = 1
             element.classList.add("rootNoteAnimation")
         }else if(element.innerText == filteredNotes[1]){
-            element.style.backgroundColor = noteDegreesColor[2]
+            element.style.backgroundColor = noteDegreesColor[1]
             element.style.opacity = 1    
         }else if(element.innerText == filteredNotes[2]){
             element.style.backgroundColor = noteDegreesColor[1]

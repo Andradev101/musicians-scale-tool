@@ -42,7 +42,7 @@ function pianoLayout(){
         fretCounting.children[counter].style.width = "30px"; //change all children style
     }//assign counter value to fretcount p tags
     assignNotes()
-    selectHilightMode()
+    selectHighlightMode()
 }
 
 function assignNotes(){

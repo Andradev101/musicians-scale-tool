@@ -1,7 +1,6 @@
 .user-side{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
 }
 .rootNoteAnimation{
     animation: rootNote 1s linear infinite;
@@ -26,6 +25,61 @@ a{
 a:hover{
     color: #334D5B;
     background-color: white;
+}
+.input-block{
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+}
+form{
+    display: flex;
+}
+label{
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.3);
+    transition: color 0.5s ease-in-out;
+}
+label:hover{
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.7);
+}
+body > div.main-area > div > label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    display: inline-block;
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: #f26419;
+    color: white;
+    padding: 0.54em;
+    margin: 0 3px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s ease-in-out, 
+                transform 0.2s ease;
+}
+
+button:hover,
+select:hover{
+    background: #b92a06;
+}
+
+select {
+    border: 0;
+    background: #f26419;
+    padding: 0.5em;
+    font-size: 1em;
+    color: white;
+    transition: background 0.2s ease-in-out, 
+                transform 0.2s ease;
+}
+select:focus-visible{
+    border: 0;
 }
 
 @keyframes rootNote {

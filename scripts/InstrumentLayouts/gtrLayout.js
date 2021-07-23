@@ -10,13 +10,13 @@ function gtrLayout() {
 
     resetChildrenElements()
 
-    let k = 0;
+    let stringNumber = 0;
     for (let i = 0; i < strings.length ; i++) {
         const stringContainer = document.createElement("div");
         container.append(stringContainer);
         stringContainer.classList.add("string");
         
-        let rootNote = k
+        let rootNote = stringNumber
         switch (rootNote) {
             case 5:
                 rootNote = 4;   
@@ -37,7 +37,7 @@ function gtrLayout() {
                 rootNote = 4;   
                 break;
         } //starting note (fret number 0) in the user fretboard
-        k++;  
+        stringNumber++;  
     
         for (let j = rootNote; j <= rootNote+24; j++) {//e.g starts from 4 and it goes until (4+22) 26
             const noteBox = document.createElement("div");
@@ -55,7 +55,7 @@ function gtrLayout() {
         fretCounting.append(fretNumber) 
     }//assing counter value to fretcount p tags 
     assignNotes()
-    selectHilightMode() //select highlight method from the form
+    selectHighlightMode() //select highlight method from the form
 }
 
 function assignNotes(){
