@@ -2,7 +2,7 @@
 Little JavaScript project based on musical theory intervals/scales.  
 
 The algorithm is based on the user's root note choice, and get all possible intervals.  
-Then is filters the notes based on the user's highlight method.    
+Then it filters the notes based on the user's highlight method choice.    
 Which includes all below:  
 
 - Single note;  
